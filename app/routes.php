@@ -15,3 +15,9 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+Route::group(array('prefix' => 'api'), function() 
+{
+	// DontDo
+	Route::get('dontdo/{id}', 'DontDoController@show');
+});
