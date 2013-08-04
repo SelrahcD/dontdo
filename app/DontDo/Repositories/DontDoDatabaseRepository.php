@@ -20,4 +20,9 @@ class DontDoDatabaseRepository implements DontDoRepository {
 	{
 		return $this->model->all();
 	}
+
+	public function getAllPaginated($nbElement = 10)
+	{
+		return $this->model->paginate($nbElement);
+	}
 }
