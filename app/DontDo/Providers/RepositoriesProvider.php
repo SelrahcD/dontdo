@@ -10,7 +10,7 @@ class RepositoriesProvider extends ServiceProvider {
 	 *
 	 * @var bool
 	 */
-	protected $defer = true;
+	protected $defer = false;
 
 	/**
 	 * Register the service provider.
@@ -29,6 +29,6 @@ class RepositoriesProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return array('DontDoRepository');
+		return array('DontDo\Repositories\DontDoRepository');
 	}
 }
