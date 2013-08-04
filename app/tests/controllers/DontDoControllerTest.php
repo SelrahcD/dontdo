@@ -19,6 +19,16 @@ class DontDoControllerTest extends TestCase {
 		$this->mocks = $this->getMocks();
 	}
 
+	public function testWeCanListAllDontDo()
+	{
+		$this->app->instance('DontDo\Repositories\DontDoRepository', $this->mocks['dontDoRepository']);
+
+		$this->mocks['dontDoRepository']->shouldReceive('getAll')->once()->andReturn('foo');
+
+		$response = $this->call('GET', 'api/dontdo');
+		$this->assertEquals('foo', $response->getOriginalContent());
+	}
+
 	/**
 	 * @expectedException \DontDo\Exceptions\NotFoundException
 	 */

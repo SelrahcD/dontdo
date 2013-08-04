@@ -19,5 +19,6 @@ Route::get('/', function()
 Route::group(array('prefix' => 'api'), function() 
 {
 	// DontDo
+	Route::get('dontdo', 'DontDoController@listAll');
 	Route::get('dontdo/{id}', 'DontDoController@show');
 });

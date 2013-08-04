@@ -22,6 +22,11 @@ class DontDoController extends BaseController {
 		$this->dontDoRepository = $dontDoRepository;
 	}
 
+	public function listAll()
+	{
+		return $this->dontDoRepository->getAll();
+	}
+
 	public function show($dontDoId)
 	{
 		if(!($dontDo = $this->dontDoRepository->getById($dontDoId)))
