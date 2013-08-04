@@ -18,6 +18,6 @@ class DontDoDatabaseRepository implements DontDoRepository {
 
 	public function getAll()
 	{
-		return $this->model->getAll();
+		return $this->model->all();
 	}
 }
