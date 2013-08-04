@@ -23,9 +23,10 @@ class DontDoControllerTest extends TestCase {
 	{
 		$this->app->instance('DontDo\Repositories\DontDoRepository', $this->mocks['dontDoRepository']);
 
-		$this->mocks['dontDoRepository']->shouldReceive('getAll')->once()->andReturn('foo');
+		$this->mocks['dontDoRepository']->shouldReceive('getAllPaginated')->once()->andReturn('foo');
 
 		$response = $this->call('GET', 'api/dontdo');
+		$this->assertInstanceOf('DontDo\Extensions\Response\PaginatorResponse', $response);
 		$this->assertEquals('foo', $response->getOriginalContent());
 	}
 

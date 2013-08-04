@@ -1,7 +1,8 @@
 <?php
 
 use DontDo\Repositories\DontDoRepository,
-	DontDo\Exceptions\NotFoundException;
+	DontDo\Exceptions\NotFoundException,
+	DontDo\Extensions\Response\PaginatorResponse;
 
 class DontDoController extends BaseController {
 
@@ -11,6 +12,12 @@ class DontDoController extends BaseController {
 	 * @var DontDo\Repositories\DontDoRepository
 	 */
 	protected $dontDoRepository;
+
+	/**
+	 * Number of elements to display in one page
+	 * @var int
+	 */
+	const PAGE_SIZE = 10;  
 
 	/**
 	 * Conctructor
@@ -24,7 +31,9 @@ class DontDoController extends BaseController {
 
 	public function listAll()
 	{
-		return $this->dontDoRepository->getAll();
+		$paginator = $this->dontDoRepository->getAllPaginated(self::PAGE_SIZE);
+
+		return new PaginatorResponse($paginator);
 	}
 
 	public function show($dontDoId)
