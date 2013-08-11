@@ -13,7 +13,7 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	return View::make('application');
 });
 
 Route::group(array('prefix' => 'api'), function() 
