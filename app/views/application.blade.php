@@ -13,13 +13,6 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link rel="stylesheet" href="styles/main.css">
-
-        <!-- build:js scripts/vendor/modernizr.js -->
-        <script src="bower_components/modernizr/modernizr.js"></script>
-        <!-- endbuild -->
-
     </head>
     
     <body>
@@ -31,6 +24,15 @@
         <script src="./assets/js/vendor/underscore.js"></script>
         <script src="./assets/js/vendor/backbone.js"></script>
         <script src="./assets/js/vendor/backbone.marionette.js"></script>
+
+
+        <script src="./assets/js/app.js"></script>
+        <script src="./assets/js/apps/dontdo/dontdo_app.js"></script>
+
+
+        <script type="text/javascript">
+          DontDo.start();
+        </script>
 
     </body>
 </html>
