@@ -9,7 +9,8 @@
 		"mockery/mockery": "0.7.2",
 		"behat/behat": "2.4.*",
 		"guzzle/guzzle": "2.4.*",
-		"fzaninotto/Faker": "1.2.0"
+		"fzaninotto/Faker": "1.2.0",
+		"jason-morton-nz/laravel-grunt": "dev-master"
 	},
 	"autoload": {
 		"classmap": [

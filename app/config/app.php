@@ -114,7 +114,8 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'DontDo\Providers\RepositoriesProvider',
-		'DontDo\Providers\DontDoErrorProvider'
+		'DontDo\Providers\DontDoErrorProvider',
+		'JasonMortonNZ\LaravelGrunt\LaravelGruntServiceProvider',
 
 	),
 
