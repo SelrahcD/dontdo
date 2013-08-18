@@ -1,6 +1,6 @@
-
 (function(Backbone, Marionette, App) {
-
+	"use strict";
+	
 	var DontDoApp = App.module('DontDoApp');
 
 	DontDoApp.Router = Marionette.AppRouter.extend({
