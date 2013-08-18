@@ -20,14 +20,14 @@
         </div>
         
         
-        <script src="./assets/js/vendor/jquery.js"></script>
-        <script src="./assets/js/vendor/underscore.js"></script>
-        <script src="./assets/js/vendor/backbone.js"></script>
-        <script src="./assets/js/vendor/backbone.marionette.js"></script>
+        <script src="./bower_components/jquery/jquery.js"></script>
+        <script src="./bower_components/underscore/underscore.js"></script>
+        <script src="./bower_components/backbone/backbone.js"></script> 
+        <script src="./bower_components/backbone.marionette/lib/backbone.marionette.js"></script>
 
 
-        <script src="./assets/js/app.js"></script>
-        <script src="./assets/js/apps/dontdo/dontdo_app.js"></script>
+        <script src="./scripts/application.js"></script>
+        <script src="./scripts/apps/dontdo/app.js"></script>
 
 
         <script type="text/javascript">
