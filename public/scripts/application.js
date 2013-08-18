@@ -4,7 +4,7 @@ DontDo = (function(Backbone, Marionette) {
 	var App = new Marionette.Application();
 
   App.addRegions({
-    mainRegion: "#main-region"
+    main: "#main-region"
   });
 
   App.navigate = function(route,  options){

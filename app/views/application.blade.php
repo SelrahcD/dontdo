@@ -16,6 +16,17 @@
     </head>
     
     <body>
+        <script type="text/template" id="dontdo-view">
+        <span class="dont-title">Dont</span>
+        <div>
+            <%= dontSnippet %>
+        </div>
+        <span class="do-tilte">Do</span>
+        <div>
+            <%= doSnippet %>
+        </div>
+        </script>
+
         <div class="row" id="main-region">
         </div>
         
@@ -25,14 +36,23 @@
         <script src="./bower_components/backbone/backbone.js"></script> 
         <script src="./bower_components/backbone.marionette/lib/backbone.marionette.js"></script>
 
+        <script src="./scripts/backbone.compute.js"></script>
+
 
         <script src="./scripts/application.js"></script>
-        <script src="./scripts/apps/dontdo/app.js"></script>
+        <script src="./scripts/entities/_base/model.js"></script>
+        <script src="./scripts/entities/_base/collection.js"></script>
+        <script src="./scripts/entities/dontdo.js"></script>
 
+        <script src="./scripts/apps/dontdo/app.js"></script>
+        <script src="./scripts/apps/dontdo/list/list_controller.js"></script>
+        <script src="./scripts/apps/dontdo/list/list_view.js"></script>
 
         <script type="text/javascript">
           DontDo.start();
         </script>
+
+
 
     </body>
 </html>
