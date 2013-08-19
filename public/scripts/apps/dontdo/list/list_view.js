@@ -5,11 +5,26 @@ DontDo.module("DontDoApp.List", function (List, App, Backbone, Marionette, $, _)
     tagName: "li"
   });
 
-  List.DontDoList = Marionette.CollectionView.extend({
-    tagName: "ul",
-    className: "dontdo-list",
+  List.DontDoList = Marionette.CompositeView.extend({
+    template: "#dontdo-list",
+    tagName: "div",
+    className: "dontdo-list-container",
     itemViewEventPrefix: "dontdo",
-    itemView: List.DontDo
+    itemView: List.DontDo,
+    itemViewContainer: "ul",
+
+    events: {
+      'click #load-more': 'loadMore'
+    },
+
+    loadMore: function() {
+      App.request("DontDo:LoadMore");
+    }
+
+  });
+
+  App.on("DontDo.Entities:feedEmpty", function() {
+    console.log('We need to remove the link');
   });
 
 });

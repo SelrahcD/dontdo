@@ -31,9 +31,6 @@ class DontDoController extends BaseController {
 
 	public function listAll()
 	{
-		// Temp
-		return $this->dontDoRepository->getAll();
-
 		$paginator = $this->dontDoRepository->getAllPaginated(self::PAGE_SIZE);
 
 		return new PaginatorResponse($paginator);

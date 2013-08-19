@@ -27,6 +27,11 @@
         </div>
         </script>
 
+        <script type="text/template" id="dontdo-list">
+        <ul></ul>
+        <a id="load-more">Load more</a>
+        </script>
+
         <div class="row" id="main-region">
         </div>
         

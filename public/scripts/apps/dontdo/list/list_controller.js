@@ -3,14 +3,14 @@ DontDo.module("DontDoApp.List", function (List, App, Backbone, Marionette, $, _)
   List.Controller = {
 
   	showList: function() {
-  		var func = _.bind(this._showMailList, this);
+  		var func = _.bind(this._showDontDoList, this);
 
-  		$.when(App.request("dontDo:entities"))
+  		$.when(App.request("DontDo.Entities:getBucket"))
   		  .then(func);
   	},
 
-  	_showMailList: function(entities) {
-  		var dontDoListView = this._getDontDoListView(entities);
+  	_showDontDoList: function(entities) {
+  		  var dontDoListView = this._getDontDoListView(entities);
   	  	App.main.show(dontDoListView);
   	},
 
@@ -21,5 +21,9 @@ DontDo.module("DontDoApp.List", function (List, App, Backbone, Marionette, $, _)
   		});
   	}
   }
+
+  App.reqres.setHandler("DontDo:LoadMore", function() {
+    App.request("DontDo.Entities:getBucket");
+  });
 
 });

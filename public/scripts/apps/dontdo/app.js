@@ -5,13 +5,12 @@
 
 	DontDoApp.Router = Marionette.AppRouter.extend({
 	  appRoutes: {
-	    "list": "listDontDo"
+	    "": "listDontDo"
 	  }
 	});
 
 	var API = {
 	  listDontDo: function(){
-	  	console.log('dont do list');
 	  	DontDoApp.List.Controller.showList();
 	  }
 	}

@@ -24,9 +24,6 @@ DontDo = (function(Backbone, Marionette) {
       Backbone.history.start();
     }
 
-    if(this.getCurrentRoute() === ""){
-      App.navigate('list');
-    }
   });
 
   return App;

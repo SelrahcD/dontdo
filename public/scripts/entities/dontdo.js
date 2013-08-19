@@ -19,34 +19,54 @@ DontDo.module("Entities", function(Entities, App, Backbone, Marionette, $, _) {
   	    return fields.do;
   	  }
   	}
+
   });
 
   var DontDoCollection = App.Entities.Collection.extend({
   	model: DontDo,
-    url: "/api/dontdo"
+    url: "/api/dontdo",
+
+    parse: function(resp, options) {
+      if(resp.meta.next === null) {
+        App.trigger("DontDo.Entities:feedEmpty");
+      }
+      return resp.data;
+    }
   });
+
+  var page = 1,
+      collection = new DontDoCollection();
 
   var API = {
 
-  	getAll: function() {
-  	  var deferred = $.Deferred();
+    getBucket: function() {
+      var deferred = $.Deferred();
 
-  	  this._getDontDo(function(dontDo) {
-  	    deferred.resolve(dontDo.collection);
-  	  });
+      var options = {
+        remove: false,
+        data: {
+          page: page
+        }
+      };
 
-  	  return deferred.promise();
-  	},
+      this._getDontDo(function() {
+        deferred.resolve(collection);
+      }, options);
 
-  	_getDontDo: function(callback) {
-  	  var dontDoCollection = new DontDoCollection();
-  	  dontDoCollection.on("add", callback);
-  	  dontDoCollection.fetch();
+      page++;
+
+      return deferred.promise();
+    },
+
+  	_getDontDo: function(callback, options) {
+      options = options || {};
+  	  collection.on("sync", callback);
+  	  collection.fetch(options);
   	}
   }
 
-  App.reqres.setHandler("dontDo:entities", function() {
-    return API.getAll();
+  App.reqres.setHandler("DontDo.Entities:getBucket", function() {
+    return API.getBucket();
   });
 
 });
