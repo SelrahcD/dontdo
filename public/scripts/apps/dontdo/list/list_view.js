@@ -17,14 +17,20 @@ DontDo.module("DontDoApp.List", function (List, App, Backbone, Marionette, $, _)
       'click #load-more': 'loadMore'
     },
 
+    initialize: function(){
+      App.on("DontDo.Entities:feedEmpty", function() {
+        this.removeLink();
+      }, this);
+    },
+
     loadMore: function() {
       App.request("DontDo:LoadMore");
+    },
+
+    removeLink: function() {
+      $('#load-more').remove();
     }
 
-  });
-
-  App.on("DontDo.Entities:feedEmpty", function() {
-    console.log('We need to remove the link');
   });
 
 });
