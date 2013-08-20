@@ -15,7 +15,7 @@ class DontDoTableSeeder extends Seeder {
 
 		$faker = Faker\Factory::create();
 
-		for($i = 0; $i < 50; $i++)
+		for($i = 0; $i < 25; $i++)
 		{
 			$dontDo = new DontDo(array(
 				'dont' => $faker->text,
