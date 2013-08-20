@@ -18,8 +18,8 @@ class DontDoTableSeeder extends Seeder {
 		for($i = 0; $i < 25; $i++)
 		{
 			$dontDo = new DontDo(array(
-				'dont' => $faker->text,
-				'do'   => $faker->text
+				'dontSnippet' => $faker->text,
+				'doSnippet'   => $faker->text
 				));
 
 			$dontDo->save();

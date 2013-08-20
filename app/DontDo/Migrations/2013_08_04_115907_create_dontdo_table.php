@@ -15,8 +15,8 @@ class CreateDontdoTable extends Migration {
 		Schema::create('dontdo', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->text('dont');
-			$table->text('do');
+			$table->text('dontSnippet');
+			$table->text('doSnippet');
 			$table->timestamps();
 		});
 	}
